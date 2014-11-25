@@ -76,14 +76,14 @@ class Manager_rectangle:
     class for statistic and visualization of rectangle
     """
 
-    def __init__(self, list_points, rectangle_width, rectangle_height, count_column = -1, count_row = -1):
+    def __init__(self, list_points, rectangle_width = 5.0, rectangle_height = 5.0, count_column = -1, count_row = -1):
         """
 
-        :param list_points:
-        :param rectangle_width:
-        :param rectangle_height:
-        :param count_column:
-        :param count_row:
+        :param list_points: list
+        :param rectangle_width: float you should specify rectangle width/height or count column/row
+        :param rectangle_height: float
+        :param count_column: int
+        :param count_row: int
         :return:
         """
 
