@@ -76,7 +76,7 @@ def quadrats_simulate(points,x_bound=[0,100],y_bound=[0,100],simulate="uniform",
      
     test_statistic_list = [] #store test statisitcs for all the simulated samples
     for i in range(nsim):
-        points_simulated = csr(len(points), x_bound=[0,100],y_bound=[0,100],simulate=simulate) #simulate point patterns
+        points_simulated = csr(len(points), x_bound=x_bound,y_bound=y_bound,simulate=simulate) #simulate point patterns
         if t== "rectangular":
             mr_temp = qd.Manager_rectangle(points_simulated,count_column=nx,count_row=ny)
         elif t == "hexagon":
