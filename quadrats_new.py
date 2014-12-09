@@ -38,6 +38,30 @@ def generate_points(point_num, list_boundaries=None):
 
     return points
 
+def read_points(file_path, x_index, y_index, split_char=',', begin_form_line=0):
+    """
+    Read points from data file
+    :param file_path: str, file path
+    :param x_index: int, which column is the x coordinate
+    :param y_index: int, which column is the y coordinate
+    :param split_char: str, split char
+    :param begin_form_line: int read from which line
+    :return: list_points, structure as [[x0, y0],[x1, y1],...,[xn, yn]]
+    """
+    f = open(file_path,'r')
+    list_points = []
+    line_count = 0
+    for line in f:
+        if line_count >= begin_form_line:
+            point = []
+            fields = line.split(split_char)
+            point.append(float(fields[x_index]))
+            point.append(float(fields[y_index]))
+            list_points.append(point)
+        line_count += 1
+    f.close()
+    return list_points
+
 class MBR:
     """
     minimum bounding rectangle structure
@@ -333,21 +357,26 @@ class Manager_hexagon:
 # manager_rectangle(generate_points(200),23,32)
 
 
-# for i in xrange(100000):
-#     m = Manager_hexagon(generate_points(300),random.uniform(6,12))
+# for i in xrange(1000):
+#     m = Manager_hexagon(generate_points(4710), random.uniform(6,12))
 #     m.point_location_sta()
-#     if i % 10000 == 0:
+#     if i % 100 == 0:
 #         print 'i=',i
 # print "finished"
 
-# p = Manager_rectangle(generate_points(3000),5,6)
-# p.plot(plot_use_mpld3=True)
+# points = read_points("C:\\Users\\Shao\\Dropbox\\poi_beijing_bank_id_lon_lat.csv",1,2)
+# print points
+
+# p = Manager_rectangle(generate_points(300),11,13)
+# p.plot()
 
 
 # p = Manager_rectangle(generate_points(300),5,6, count_column=11, count_row=13)
-# p.point_location_sta()
+# a = p.point_location_sta()
+
 
 # m = Manager_hexagon(generate_points(300),random.uniform(6,12))
+# m = Manager_hexagon(generate_points(100), 30)
 # m.plot()
 
 # def ca():
