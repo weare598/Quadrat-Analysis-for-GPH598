@@ -58,7 +58,7 @@ def quadrats_simulate(points,x_bound=[0,100],y_bound=[0,100],simulate="uniform",
               Numbers of rectangular quadrats in the y direction. (rectangular)
     lh      : integer
               hexagon length (hexagon) - incompatible with nx & ny
-    t       : integer
+    t       : string
               grid structure. can be "rectangular" or "hexagon"
               
     Returns
